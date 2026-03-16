@@ -458,7 +458,7 @@ fy = st.text_input("FINANCIAL YEAR (MANUAL)").upper() if fy_sel == "TYPE MANUALL
 
 mode = st.selectbox("MODE (SEA / AIR)", options=["SEA", "AIR"], index=0)
 
-        with R:
+with R:
             pono = st.text_input("PO NUMBER").upper()
             podate = st.date_input("PO DATE", format="YYYY-MM-DD")
             ocno = st.text_input("OC NUMBER").upper()
