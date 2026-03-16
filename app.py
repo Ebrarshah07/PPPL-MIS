@@ -465,7 +465,7 @@ with R:
             ocdate = st.date_input("OC DATE", format="YYYY-MM-DD")
             scadenza = st.date_input("SCADENZA / SCHEDULE DATE", format="YYYY-MM-DD")
 
-        if mode == "AIR":
+if mode == "AIR":
             st.markdown('<div style="height:8px;background:#fff7cc;border:1px solid #fde68a;"></div>', unsafe_allow_html=True)
 
         st.markdown("### ITEMS (ADD LINES AS NEEDED)")
