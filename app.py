@@ -443,33 +443,39 @@ if page == "MANAGEMENT INFORMATION SYSTEM":
         L, R = st.columns(2, gap="large")
 
         with L:
-            sr = st.number_input("SR NUMBER", min_value=1, step=1)
-            customer_list = ["ABC Ltd", "XYZ Pvt Ltd", "Other"]
+    sr = st.number_input("SR NUMBER", min_value=1, step=1)
 
-customer_select = st.selectbox("Customer Name", customer_list)
+    customer_list = ["ABC Ltd", "XYZ Pvt Ltd", "Other"]
+    customer_select = st.selectbox("Customer Name", customer_list)
 
-if customer_select == "Other":
-    customer_name = st.text_input("Enter Customer Name")
-else:
-    customer_name = customer_select
+    if customer_select == "Other":
+        customer = st.text_input("Enter Customer Name")
+    else:
+        customer = customer_select
 
-fy_sel = st.selectbox("FINANCIAL YEAR", options=FY_DEFAULTS, index=1)
-fy = st.text_input("FINANCIAL YEAR (MANUAL)").upper() if fy_sel == "TYPE MANUALLY" else fy_sel
+    fy_sel = st.selectbox("FINANCIAL YEAR", options=FY_DEFAULTS, index=1)
 
-mode = st.selectbox("MODE (SEA / AIR)", options=["SEA", "AIR"], index=0)
+    if fy_sel == "TYPE MANUALLY":
+        fy = st.text_input("FINANCIAL YEAR (MANUAL)").upper()
+    else:
+        fy = fy_sel
+
+    mode = st.selectbox("MODE (SEA / AIR)", options=["SEA", "AIR"], index=0)
 
 with R:
-            pono = st.text_input("PO NUMBER").upper()
-            podate = st.date_input("PO DATE", format="YYYY-MM-DD")
-            ocno = st.text_input("OC NUMBER").upper()
-            ocdate = st.date_input("OC DATE", format="YYYY-MM-DD")
-            scadenza = st.date_input("SCADENZA / SCHEDULE DATE", format="YYYY-MM-DD")
+    pono = st.text_input("PO NUMBER").upper()
+    podate = st.date_input("PO DATE", format="YYYY-MM-DD")
+    ocno = st.text_input("OC NUMBER").upper()
+    ocdate = st.date_input("OC DATE", format="YYYY-MM-DD")
+    scadenza = st.date_input("SCADENZA / SCHEDULE DATE", format="YYYY-MM-DD")
 
 if mode == "AIR":
-            st.markdown('<div style="height:8px;background:#fff7cc;border:1px solid #fde68a;"></div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div style="height:8px;background:#fff7cc;border:1px solid #fde68a;"></div>',
+        unsafe_allow_html=True
+    )
 
-        st.markdown("### ITEMS (ADD LINES AS NEEDED)")
-
+st.markdown("### ITEMS (ADD LINES AS NEEDED)")
         new_items = []
         for i, item in enumerate(st.session_state["items"]):
             c1, c2, c3, c4, c5, c6 = st.columns([3,1.2,1.2,1.8,1.8,1.6])
