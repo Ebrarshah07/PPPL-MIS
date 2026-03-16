@@ -454,7 +454,7 @@ else:
     customer_name = customer_select
 
 fy_sel = st.selectbox("FINANCIAL YEAR", options=FY_DEFAULTS, index=1)
-            fy = st.text_input("FINANCIAL YEAR (MANUAL)").upper() if fy_sel == "TYPE MANUALLY" else fy_sel
+fy = st.text_input("FINANCIAL YEAR (MANUAL)").upper() if fy_sel == "TYPE MANUALLY" else fy_sel
 
             mode = st.selectbox("MODE (SEA / AIR)", options=["SEA", "AIR"], index=0)
 
