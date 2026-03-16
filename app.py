@@ -444,11 +444,14 @@ if page == "MANAGEMENT INFORMATION SYSTEM":
 
         with L:
             sr = st.number_input("SR NUMBER", min_value=1, step=1)
-            cust_sel = st.selectbox("CUSTOMER NAME", options=CUSTOMERS, index=1)
-            if "OTHER" in cust_sel:
-                customer = st.text_input("CUSTOMER NAME (TYPE)").upper()
-            else:
-                customer = cust_sel
+            customer_list = ["ABC Ltd", "XYZ Pvt Ltd", "Other"]
+
+customer_select = st.selectbox("Customer Name", customer_list)
+
+if customer_select == "Other":
+    customer_name = st.text_input("Enter Customer Name")
+else:
+    customer_name = customer_select
 
             fy_sel = st.selectbox("FINANCIAL YEAR", options=FY_DEFAULTS, index=1)
             fy = st.text_input("FINANCIAL YEAR (MANUAL)").upper() if fy_sel == "TYPE MANUALLY" else fy_sel
