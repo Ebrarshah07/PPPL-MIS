@@ -442,7 +442,7 @@ if page == "MANAGEMENT INFORMATION SYSTEM":
     with st.form("mis_form", clear_on_submit=False):
         L, R = st.columns(2, gap="large")
 
-    with L:
+with L:
     sr = st.number_input("SR NUMBER", min_value=1, step=1)
 
     customer_list = ["ABC Ltd", "XYZ Pvt Ltd", "Other"]
